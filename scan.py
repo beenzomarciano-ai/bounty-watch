@@ -1080,7 +1080,7 @@ def write_inscope_digest(events):
                 body = body[:60000] + "\n\n…truncated, see the dashboard."
             with open(INSCOPE, "w", encoding="utf-8") as f:
                 f.write(body + "\n\ncc @abdulsalam-create")
-            with open("inscope_title.txt", "w", encoding="utf-8") as f:
+            with open(os.path.join(os.path.dirname(INSCOPE) or ".", "inscope_title.txt"), "w", encoding="utf-8") as f:
                 f.write(f"New in-scope {TODAY}: {len(by)} program(s) added targets")
             print(f"[!] in-scope digest written: {len(by)} programs")
     save(INSCOPE_STATE, st)
